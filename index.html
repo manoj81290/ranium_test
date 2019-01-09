@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Asteroid - Neo Stats</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		
+	</head>
+	<body>
+		<div class="container">
+	 		<div class="well">
+	 			<div class="row">
+	 				<div class="col-md-12">
+	 					<h3>NASA API</h3>
+	 				</div>
+	 			</div>
+	 			<hr>
+	 			<div class="row">
+	 				<div ng-app="myapp" ng-controller="formcontroller">
+		 				<form name="asteroidsData" >
+			 				<div class="col-md-6">
+			 					<div class="form-group">
+								    <label for="startDate">Start Date</label>
+								    <input type="text" id="datepicker1" name="start_date" ng-model="start_date"  class="form-control" id="startDate">
+								</div>
+			 				</div>
+			 				<div class="col-md-6">
+			 					<div class="form-group">
+								    <label for="endDate">End Date</label>
+								    <input type="text" id="datepicker2" name="end_date" ng-model="end_date" class="form-control" id="endDate">
+								</div>
+			 				</div>
+			 				<div class="col-md-6">
+			 					<div class="form-group">
+								    <input type="submit" name="insert" class="btn btn-primary" ng-click="insertData()">
+								</div>
+			 				</div>	 					
+		 				</form>	 			 							
+	 				</div>
+	 			</div>
+	 		</div>
+	 		<div class="well">
+	 			<h4>Asteroid - Neo Stats</h4>
+	 			<canvas id="myChart"></canvas>
+	 		</div>
+		</div>
+	</body>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	
+</html>
+
+<script type="text/javascript">
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'line',
+        
+	    // The data for our dataset
+	    data: {
+	        labels: ["January", "February", "March", "April", "May", "June", "July"],
+	        datasets: [{
+	            label: "My First dataset",
+	            backgroundColor: 'rgb(255, 99, 132)',
+	            borderColor: 'rgb(255, 99, 132)',
+	            data: [0,10,20,0.100],
+	        }]
+	    },
+
+	    // Configuration options go here
+	    options: {}
+	});
+</script>
